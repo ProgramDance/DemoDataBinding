@@ -1,0 +1,47 @@
+package com.demo.demodatabinding;
+
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+
+public class UserInfo extends BaseObservable{
+    private String name;
+    private int age;
+    private boolean isStudent;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Bindable
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+        notifyPropertyChanged(BR.age);
+    }
+
+    public boolean isStudent() {
+        return isStudent;
+    }
+
+    public void setStudent(boolean student) {
+        isStudent = student;
+    }
+
+    public UserInfo(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public UserInfo(String name, int age, boolean isStudent) {
+        this.name = name;
+        this.age = age;
+        this.isStudent = isStudent;
+    }
+}
